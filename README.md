@@ -1,2 +1,2 @@
-# Word-Guess-Game
-Hangman style game
+# Psychic-Game
+Guess the letter game
