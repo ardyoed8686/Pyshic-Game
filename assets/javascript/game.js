@@ -6,7 +6,7 @@ var guesses = [];
 
 var totalWins = document.getElementById("T-wins");
 var totalLosses = document.getElementById("T-losses");
-var tries = document.getElementById("remaining-guesses");
+// var tries = document.getElementById("remaining-guesses");
 var guessesSoFar = document.getElementById("key-presses");
 
 
@@ -22,8 +22,10 @@ var computerChoice = computerGuess[Math.floor(Math.random() * computerGuess.leng
     guesses.push(userGuess);
     console.log(guesses);
     document.getElementById("key-presses").innerHTML = (guesses);
+    console.log(tries);
 
     // When the player wins, increase the Wins counter and start the game over again (without refreshing the page).
+ 
 
     if (computerChoice === userGuess) {
         wins++;
@@ -34,16 +36,20 @@ var computerChoice = computerGuess[Math.floor(Math.random() * computerGuess.leng
     } else {
         tries--;
         losses++;
-     }
-     if (tries === 0) {
-        alert("Game Over");
-     }
-     //calculate tries remaining
-     //setup game restart
-
-     
+        
+        if (tries === 0) {
+          // alert("Game Over");
+            wins = 0;
+            losses = 0;
+            tries = 10;
+            guesses = [];
+        }
+    
+    }
     //  document.getElementById("T-wins").innerHTML = "Wins: " +wins;
     //  document.getElementById("T-losses").innerHTML = "Losses: " +losses;
+
+    // updates the remaining tries for the user
      document.getElementById("remaining-guesses").innerHTML = tries;
 
       // Display the wins/losses/remaining guesses and user guesses.
@@ -51,4 +57,8 @@ var computerChoice = computerGuess[Math.floor(Math.random() * computerGuess.leng
       totalWins.textContent = "Wins: " + wins;
       totalLosses.textContent = "Losses: " + losses;
       
-}
+    }
+    
+    
+     //
+     //setup game restart
