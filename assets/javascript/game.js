@@ -27,17 +27,23 @@ var computerChoice = computerGuess[Math.floor(Math.random() * computerGuess.leng
 
     if (computerChoice === userGuess) {
         wins++;
+        tries = 9;
+        guesses.length = 0;
      
       // When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).
-    } else if (computerChoice !== userGuess){
+    } else {
+        tries--;
         losses++;
      }
-     else {
-        tries--;
+     if (tries === 0) {
+        alert("Game Over");
      }
+     //calculate tries remaining
+     //setup game restart
 
-     document.getElementById("T-wins").innerHTML = "Wins: " +wins;
-     document.getElementById("T-losses").innerHTML = "Losses: " +losses;
+     
+    //  document.getElementById("T-wins").innerHTML = "Wins: " +wins;
+    //  document.getElementById("T-losses").innerHTML = "Losses: " +losses;
      document.getElementById("remaining-guesses").innerHTML = tries;
 
       // Display the wins/losses/remaining guesses and user guesses.
